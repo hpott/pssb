@@ -1,6 +1,8 @@
 import sys
 import os
 
+favicon=False
+
 #This is an incrdibly dumb way to get arguments, but it works
 argf=sys.argv[1]
 
@@ -63,13 +65,24 @@ with open(dirf, 'r') as pssb:
     data=pssb.readline().replace('\n', '')
 iconpath=data
 
+#Check if favicon will be used
+if iconpath == "":
+    print("Downloading faicon")
+    os.system("wget "+link+"/favicon.ico")
+    favicon=True
+    iconpath="favicon.ico"
+
 #Install ssb
-print ("Follow the dialog prompts to install"+id+"...")
+print ("Follow the dialog prompts to install "+id+"...")
 os.system("ice -b "+browser+" -c "+cat+" -i "+iconpath+" -I True  -n"+name+" -u "+link)
 #Removes junk
 print("Cleaning Up")
 os.system("rm "+argf+"/*")
 os.system("rmdir "+argf)
-os.system("rm "+argf+".png "+dirf   )
+if favicon:
+    os.system("rm favicon.ico "+dirf)
+else:
+    os.system("rm "+argf+".png "+dirf)
 
 print ("Completed")
+
