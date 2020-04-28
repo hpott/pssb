@@ -1,5 +1,8 @@
 # PSSB
 
+**UPDATE**
+I am working on a c++ version, this one might not be around for much longer
+
 Pssb (packaged SSB) is a file format for Site specific browsers.
 
 ## Installation
