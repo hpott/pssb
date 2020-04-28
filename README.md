@@ -36,6 +36,7 @@ system
 #### File names
 
 You image should only be a .png\
+Alternatively press enter when prompted for icon path to use site's default favicon
 Name your image the same as your ssb's ID
 
 
